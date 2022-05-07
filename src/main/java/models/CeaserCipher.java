@@ -38,8 +38,8 @@ public class CeaserCipher {
         if (cipherConverter.equals("encode")) {
             for (String letter : userInputArray) {
                 int newLetterIndex = alphabetArray.indexOf(letter) + shiftNumber;
-                if (newLetterIndex > 25) {
-                    convertedArray.add(alphabetArray.get(newLetterIndex - 26));
+                if (newLetterIndex > alphabet.length()-1) {
+                    convertedArray.add(alphabetArray.get(newLetterIndex - alphabet.length()));
                 } else {
                     convertedArray.add(alphabetArray.get(newLetterIndex));
                 }
@@ -48,7 +48,7 @@ public class CeaserCipher {
             for (String letter : userInputArray) {
                 int newLetterIndex = alphabetArray.indexOf(letter) - shiftNumber;
                 if (newLetterIndex < 0) {
-                    convertedArray.add(alphabetArray.get(newLetterIndex + 26));
+                    convertedArray.add(alphabetArray.get(newLetterIndex + alphabet.length()));
                 } else {
                     convertedArray.add(alphabetArray.get(newLetterIndex));
                 }
