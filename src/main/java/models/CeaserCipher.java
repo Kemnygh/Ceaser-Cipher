@@ -35,12 +35,23 @@ public class CeaserCipher {
         List<String> userInputArray = new ArrayList<>(Arrays.asList(userInput.split("")));
         List<String> convertedArray = new ArrayList<>();
 
-        for (String letter : userInputArray) {
-            int newLetterIndex = alphabetArray.indexOf(letter) + shiftNumber;
-            if(newLetterIndex > 25) {
-                convertedArray.add(alphabetArray.get(newLetterIndex-26));
-            }else{
-                convertedArray.add(alphabetArray.get(newLetterIndex));
+        if (cipherConverter.equals("encode")) {
+            for (String letter : userInputArray) {
+                int newLetterIndex = alphabetArray.indexOf(letter) + shiftNumber;
+                if (newLetterIndex > 25) {
+                    convertedArray.add(alphabetArray.get(newLetterIndex - 26));
+                } else {
+                    convertedArray.add(alphabetArray.get(newLetterIndex));
+                }
+            }
+        }else if(cipherConverter.equals("decode")){
+            for (String letter : userInputArray) {
+                int newLetterIndex = alphabetArray.indexOf(letter) - shiftNumber;
+                if (newLetterIndex < 0) {
+                    convertedArray.add(alphabetArray.get(newLetterIndex + 26));
+                } else {
+                    convertedArray.add(alphabetArray.get(newLetterIndex));
+                }
             }
         }
         return String.join("",convertedArray);

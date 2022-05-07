@@ -36,4 +36,10 @@ class CeaserCipherTest {
         CeaserCipher testEncodedWord = new CeaserCipher("abc", 1, "encode");
         assertEquals(testEncodedWord.cipher(),"bcd");
     }
+
+    @Test
+    void newCeaserCipher_check_decoded_word(){
+        CeaserCipher testDecodedWord = new CeaserCipher("abc", 1, "decode");
+        assertEquals(testDecodedWord.cipher(),"zab");
+    }
 }
