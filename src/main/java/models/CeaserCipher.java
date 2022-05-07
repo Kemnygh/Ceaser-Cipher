@@ -40,16 +40,20 @@ public class CeaserCipher {
                 int newLetterIndex = alphabetArray.indexOf(letter) + shiftNumber;
                 if (newLetterIndex > alphabet.length()-1) {
                     convertedArray.add(alphabetArray.get(newLetterIndex - alphabet.length()));
-                } else {
+                } else if (letter.equals(" ")) {
+                    convertedArray.add(" ");
+                }else {
                     convertedArray.add(alphabetArray.get(newLetterIndex));
                 }
             }
         }else if(cipherConverter.equals("decode")){
             for (String letter : userInputArray) {
                 int newLetterIndex = alphabetArray.indexOf(letter) - shiftNumber;
-                if (newLetterIndex < 0) {
+                if (letter.equals(" ")) {
+                    convertedArray.add(" ");
+                } else if (newLetterIndex < 0) {
                     convertedArray.add(alphabetArray.get(newLetterIndex + alphabet.length()));
-                } else {
+                }else {
                     convertedArray.add(alphabetArray.get(newLetterIndex));
                 }
             }

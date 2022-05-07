@@ -33,13 +33,13 @@ class CeaserCipherTest {
 
     @Test
     void newCeaserCipher_check_encoded_word(){
-        CeaserCipher testEncodedWord = new CeaserCipher("abc", 1, "encode");
-        assertEquals(testEncodedWord.cipher(),"bcd");
+        CeaserCipher testEncodedWord = new CeaserCipher("ab c", 1, "encode");
+        assertEquals(testEncodedWord.cipher(),"bc d");
     }
 
     @Test
     void newCeaserCipher_check_decoded_word(){
-        CeaserCipher testDecodedWord = new CeaserCipher("abc", 1, "decode");
-        assertEquals(testDecodedWord.cipher(),"zab");
+        CeaserCipher testDecodedWord = new CeaserCipher("ab c", 1, "decode");
+        assertEquals(testDecodedWord.cipher(),"za b");
     }
 }
