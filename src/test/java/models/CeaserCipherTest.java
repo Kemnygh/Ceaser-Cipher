@@ -31,4 +31,9 @@ class CeaserCipherTest {
         assertEquals(testConverterType.isString(), testConverterType.getCipherConverter().getClass().getSimpleName());
     }
 
+    @Test
+    void newCeaserCipher_check_encoded_word(){
+        CeaserCipher testEncodedWord = new CeaserCipher("abc", 1, "encode");
+        assertEquals(testEncodedWord.cipher(),"bcd");
+    }
 }
